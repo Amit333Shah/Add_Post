@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Simple Registration form - Bootsnipp.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+        id="bootstrap-css">
+
+    <style>
+        body {
+            background: linear-gradient(rgb(235, 175, 230), rgb(240, 154, 154))
+        }
+
+        .container {
+            align-items: center;
+            justify-content: center;
+            margin-left: 300px;
+        }
+
+        .reg {
+            margin-left: 500px;
+            margin-right: 500px;
+            margin-bottom: 15px;
+            color: rgb(10, 151, 65);
+        }
+
+        #msgerror {
+            color: red;
+            font-size: 15px;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    {% for message in messages %}
+    <h3 id="msgerror">{{message}}</h3>
+
+    {% endfor %}
+    <form class="form-horizontal" action='reg' method="post">
+        {% csrf_token %}
+        <fieldset>
+            <div id="legend">
+                <h1 class="reg">Register Here!</h1>
+            </div>
+            <div class="container">
+                <div class="control-group">
+                    <!-- E-mail -->
+                    <label class="control-label" for="first_name">First_name</label>
+                    <div class="controls">
+                        <input type="text" id="first_name" name="first_name" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please provide your First_name</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <!-- E-mail -->
+                    <label class="control-label" for="last_name">Last_name</label>
+                    <div class="controls">
+                        <input type="text" id="last_name" name="last_name" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please provide your Last_name</p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <!-- Username -->
+                    <label class="control-label" for="username">Username</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- E-mail -->
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please provide your E-mail</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password1">password1</label>
+                    <div class="controls">
+                        <input type="password" id="password1" name="password1" placeholder="" class="input-xlarge">
+                        <p class="help-block">Password should be at least 4 characters</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label" for="password2">password2</label>
+                    <div class="controls">
+                        <input type="password" id="password2" name="password2" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please confirm password</p>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-success">Register</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+
+</body>
+<script>
+    var msg = document.getElementById('msgerror').innerHTML;
+    alert(msg)
+
+</script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+</script>
+
+</html>

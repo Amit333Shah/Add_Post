@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<style>
+    body {
+        background: linear-gradient(rgb(226, 157, 157), rgb(164, 214, 164));
+        height: 95vh;
+        width: 97vw;
+    }
+
+    #tab {
+        align-items: center;
+        margin: auto;
+    }
+
+    #bt {
+        align-items: center;
+        margin-left: 500px;
+        padding: 10px 10px;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <h1 class="display-3" id="tx" style="background-color:#000000;color:#FFFF99;">Update Notes</h1>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class='w-50 table table-light' id="tab" style="border-radius:10px;background-color:#FFFF99;">
+            {% for field in form %}
+            <tr>
+                <th>{{field.label}}</th>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit" class="btn btn-lg btn-warning" id="bt">Submit</button>
+    </form>
+</body>
+
+</html>
